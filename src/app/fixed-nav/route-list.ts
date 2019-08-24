@@ -14,5 +14,6 @@ export const routeList = [
   { key: 'service', value: 'Services' },
   { key: 'login', value: 'Sign In' },
   { key: 'register', value: 'Sign Up' },
-  { key: 'contact', value: 'Contact Us' }
+  { key: 'contact', value: 'Contact Us' },
+  { key: 'detail', value: 'Product Details' }
 ];

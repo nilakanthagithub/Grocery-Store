@@ -19,6 +19,7 @@ export class FixedNavComponent implements OnInit {
   searchItems: Array<any>;
   totalAmount: any;
   searchValue: string;
+  isShow: boolean;
 
   constructor(
     private _router: Router,
@@ -28,18 +29,24 @@ export class FixedNavComponent implements OnInit {
   ngOnInit() {
     this.listenRouting();
     this.getData();
+    this.isShow = false;
   }
 
   listenRouting() {
     this._router.events.subscribe((router: any) => {
       this.routerUrl = router.urlAfterRedirects;
+      // console.log(router);
       this.isHome = (this.routerUrl =="/home") ? true : false;
       if(this.routerUrl){
+        // console.log(this.routerUrl.substr(1,this.routerUrl.lastIndexOf('/') - 1));
         for(let i of this.routeList){
-          if(i.key==this.routerUrl.substr(1)){
+          if(i.key == this.routerUrl.substr(1)){
             this.curRoute=i.value;
             break;
           }
+        }
+        if(this.routerUrl.substr(1,this.routerUrl.lastIndexOf('/') - 1) == 'detail'){
+          this.curRoute='Product Details';
         }
       }
     });
@@ -69,16 +76,16 @@ export class FixedNavComponent implements OnInit {
 
   searchProduct(event){
     if(event.target.value){
+      this.isShow = true;
       this.searchValue = event.target.value[0].toUpperCase() + event.target.value.substring(1).toLowerCase();
       this.productService.searchProduct(this.searchValue)
       .subscribe(result => {
         this.searchItems = result;
         console.log(this.searchItems.length);
-        // this.searchItems.forEach(element => {
-        //   console.log(element.payload.doc.data().name);
-        // });
-        // console.log("---------");
       });
+    }
+    else {
+      this.isShow = false;
     }
   }
 

@@ -55,7 +55,7 @@ import { DetailComponent } from './detail/detail.component';
     ReactiveFormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-     AngularFirestoreModule
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [

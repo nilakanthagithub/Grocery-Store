@@ -5,7 +5,7 @@
     </div>
     <div class="w3l_search">
         <form action="#" method="post">
-            <input type="text" name="Product" placeholder="Search a product..." (keyup)="searchProduct($event)">
+            <input type="text" name="Product" placeholder="Search a product..." (keyup)="searchProduct($event)" autocomplete="off">
             <input type="submit" value=" ">
         </form>
     </div>
@@ -39,18 +39,18 @@
     <div class="clearfix"> </div>
 </div>
 
-<div id="PPMiniCart" class="autocomplete">
+<!-- <div *ngIf="isShow" class="autocomplete">
     <form method="post" class="" action="#" target="">
         <ul>
             <li class="minicart-item"  *ngFor="let product of searchItems">
                 <div class="minicart-details-name">
-                    <a class="minicart-name">{{product.payload.doc.data().name}}</a>
+                    <a class="minicart-name" routerLink="/detail/{{product.payload.doc.data().id}}">{{product.payload.doc.data().name}}</a>
                     
                 </div>
             </li>
         </ul>
     </form>
-</div>
+</div> -->
 
 <div class="logo_products">
     <div class="container">
