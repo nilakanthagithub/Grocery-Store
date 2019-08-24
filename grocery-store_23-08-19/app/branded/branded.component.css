@@ -1,0 +1,14 @@
+
+.view-tenth img {
+    height: 100%;
+    width: 100%;
+}
+
+div img {
+    object-fit: contain;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}

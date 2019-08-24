@@ -1,0 +1,75 @@
+<div class="w3l_banner_nav_right">
+<!-- login -->
+    <div class="w3_login">
+        <h3>Sign In</h3>
+
+        <div class="w3_login_module">
+            <div class="module form-module">
+                <div class="form">
+                <h2>Login to your account</h2>
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <input type="text" formControlName="username" placeholder="Username">
+                    <div class="text-danger" *ngIf="loginForm.get('username').touched && loginForm.get('username').invalid">
+                        <div class="text-danger" *ngIf="loginForm.get('username').hasError('required')">
+                            Username is Required!
+                        </div>
+                        <div class="text-danger" *ngIf="loginForm.get('username').hasError('pattern')">
+                            Invalid Username!
+                        </div>
+                        <div class="text-danger" *ngIf="loginForm.get('username').hasError('minlength') && !loginForm.get('username').hasError('pattern')">
+                            Min Length should be of 6!
+                        </div>
+                    </div>
+
+                    <input type="password" formControlName="password" placeholder="Password">
+                    <div class="text-danger" *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid">
+                        <div class="text-danger" *ngIf="loginForm.get('password').hasError('required')">
+                            Password is Required!
+                        </div>
+                        <div class="text-danger" *ngIf="loginForm.get('password').hasError('minlength')">
+                            Min Length should be of 6!
+                        </div>
+                    </div>
+
+                    <input [disabled]="!loginForm.valid" type="submit" value="Login">
+                </form>
+                </div>
+                <!-- <div class="cta"><a href="#">Forgot your password?</a></div> -->
+            </div>
+        </div>
+    </div>
+<!-- //login -->
+</div>
+<div class="clearfix"></div>
+
+<!-- newsletter-top-serv-btm -->
+<div class="newsletter-top-serv-btm">
+    <div class="container row mx-auto">
+        <div class="col-md-4 wthree_news_top_serv_btm_grid">
+            <div class="wthree_news_top_serv_btm_grid_icon">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            </div>
+            <h3>Nam libero tempore</h3>
+            <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus 
+                saepe eveniet ut et voluptates repudiandae sint et.</p>
+        </div>
+        <div class="col-md-4 wthree_news_top_serv_btm_grid">
+            <div class="wthree_news_top_serv_btm_grid_icon">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            </div>
+            <h3>officiis debitis aut rerum</h3>
+            <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus 
+                saepe eveniet ut et voluptates repudiandae sint et.</p>
+        </div>
+        <div class="col-md-4 wthree_news_top_serv_btm_grid">
+            <div class="wthree_news_top_serv_btm_grid_icon">
+                <i class="fa fa-truck" aria-hidden="true"></i>
+            </div>
+            <h3>eveniet ut et voluptates</h3>
+            <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus 
+                saepe eveniet ut et voluptates repudiandae sint et.</p>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!-- //newsletter-top-serv-btm -->

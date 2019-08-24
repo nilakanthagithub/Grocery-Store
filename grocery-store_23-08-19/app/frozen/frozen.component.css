@@ -1,0 +1,14 @@
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.view img {
+    height: 100%;
+    width: 100%;
+}
+
+div img {
+    object-fit: contain;
+}

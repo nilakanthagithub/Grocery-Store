@@ -1,0 +1,190 @@
+<!-- header -->
+<div class="agileits_header fixed">
+    <div class="w3l_offers">
+        <a routerLink="/branded">Today's special Offers !</a>
+    </div>
+    <div class="w3l_search">
+        <form action="#" method="post">
+            <input type="text" name="Product" placeholder="Search a product..." (keyup)="searchProduct($event)">
+            <input type="submit" value=" ">
+        </form>
+    </div>
+    <div class="product_list_header">  
+        <form action="#" method="post" class="last">
+            <fieldset>
+                <input type="hidden" name="cmd" value="_cart" />
+                <input type="hidden" name="display" value="1" />
+                <input type="submit" name="submit" value="View your cart" class="button" onclick="document.getElementById('PPMiniCart').style.display='block'" />
+            </fieldset>
+        </form>
+    </div>
+    <div class="w3l_header_right">
+        <ul>
+            <li class="dropdown profile_details_drop">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i><span class="caret"></span></a>
+                <div class="mega-dropdown-menu">
+                    <div class="w3ls_vegetables">
+                        <ul class="dropdown-menu drp-mnu">
+                            <li><a routerLink="/login">Login</a></li> 
+                            <li><a routerLink="/register">Sign Up</a></li>
+                        </ul>
+                    </div>                  
+                </div>	
+            </li>
+        </ul>
+    </div>
+    <div class="w3l_header_right1">
+        <h2><a routerLink="/contact">Contact Us</a></h2>
+    </div>
+    <div class="clearfix"> </div>
+</div>
+
+<div id="PPMiniCart" class="autocomplete">
+    <form method="post" class="" action="#" target="">
+        <ul>
+            <li class="minicart-item"  *ngFor="let product of searchItems">
+                <div class="minicart-details-name">
+                    <a class="minicart-name">{{product.payload.doc.data().name}}</a>
+                    
+                </div>
+            </li>
+        </ul>
+    </form>
+</div>
+
+<div class="logo_products">
+    <div class="container">
+        <div class="w3ls_logo_products_left">
+            <h1><a routerLink="/home"><span>Grocery</span> Store</a></h1>
+        </div>
+        <div class="w3ls_logo_products_left1">
+            <ul class="special_items">
+                <li><a routerLink="/event">Events</a><i>/</i></li>
+                <li><a routerLink="/about">About Us</a><i>/</i></li>
+                <li><a routerLink="/branded">Best Deals</a><i>/</i></li>
+                <li><a routerLink="/service">Services</a></li>
+            </ul>
+        </div>
+        <div class="w3ls_logo_products_left1">
+            <ul class="phone_email">
+                <li><i class="fa fa-phone" aria-hidden="true"></i>(+0123) 234 567</li>
+                <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:store@grocery.com">store@grocery.com</a></li>
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+<!-- products-breadcrumb -->
+<div *ngIf="!isHome" class="products-breadcrumb">
+    <div class="container">
+        <ul>
+            <li><i class="fa fa-home" aria-hidden="true"></i><a routerLink="/home">Home</a><span>|</span></li>
+            <li>{{curRoute}}</li>
+        </ul>
+    </div>
+</div>
+<!-- //products-breadcrumb -->
+
+<div id="PPMiniCart">
+    <form method="post" class="" action="#" target="">
+        <button type="button" class="minicart-closer" onclick="document.getElementById('PPMiniCart').style.display='none'">×</button>
+        <ul *ngIf="totalAmount>0">
+            <li class="minicart-item"  *ngFor="let product of cartItems">
+                <div class="minicart-details-name">
+                    <a class="minicart-name">{{product.payload.doc.data().name}}</a>
+                    <ul class="minicart-attributes">                                                              <li>Discount: ${{product.payload.doc.data().discount}}.00
+                            <input type="hidden" name="discount_amount_1" value="2">
+                        </li>
+                    </ul>
+                </div>
+                <div class="minicart-details-quantity">
+                    <input class="minicart-quantity" data-minicart-idx="0" name="quantity_1" type="text" pattern="[0-9]*" value="{{product.payload.doc.data().qty}}" autocomplete="off" (keyup)="updateCartItem(product.payload.doc, $event)">
+                </div>
+                <div class="minicart-details-remove">
+                    <button type="button" class="minicart-remove" data-minicart-idx="0" (click)="deleteCartItem(product.payload.doc.id)">×</button>
+                </div>
+                <div class="minicart-details-price">
+                    <span class="minicart-price">${{product.payload.doc.data().discPrice}}.00</span>
+                </div>
+            </li>
+        </ul>
+        <div class="minicart-footer">
+            <div class="minicart-subtotal" *ngIf="totalAmount>0">Subtotal: ${{totalAmount}}.00 USD</div>
+            <p class="minicart-empty-text" *ngIf="totalAmount==0">Your shopping cart is empty</p>
+            <button class="minicart-submit" type="submit" data-minicart-alt="undefined"></button>            
+        </div>
+    </form>
+</div>
+
+<!-- banner -->
+<div class="banner">
+    <div class="w3l_banner_nav_left">
+        <!-- <nav class="navbar nav_bottom"> -->
+        <nav class="navbar navbar-expand-md nav_bottom">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <!-- <div class="navbar-header nav_2"> -->
+            <div class="navbar-header nav_2 mx-auto">
+                <!-- <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button> -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-megadropdown-tabs" aria-controls="bs-megadropdown-tabs" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+           </div> 
+           <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                <ul class="nav navbar-nav nav_1">
+                    <li class="nav-item"><a class="nav-link" routerLink="/branded">Branded Foods</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/household">Households</a></li>
+                    <li class="nav-item dropdown mega-dropdown active">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Fruits & Veggies<span class="caret"></span></a>				
+                        <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
+                            <div class="w3ls_vegetables">
+                                <ul>	
+                                    <li><a routerLink="/fruit">Fruits</a></li>
+                                    <li><a routerLink="/fruit">Vegetables</a></li>
+                                </ul>
+                            </div>                  
+                        </div>				
+                    </li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/kitchen">Kitchen</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="short-codes.html">Short Codes</a></li> -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Beverages<span class="caret"></span></a>
+                        <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
+                            <div class="w3ls_vegetables">
+                                <ul>
+                                    <li><a routerLink="/beverage">Juices</a></li>
+                                    <li><a routerLink="/beverage">Soft Drinks</a></li>
+                                </ul>
+                            </div>                  
+                        </div>	
+                    </li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/pet">Pet Food</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Frozen Foods<span class="caret"></span></a>
+                        <div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
+                            <div class="w3ls_vegetables">
+                                <ul>
+                                    <li><a routerLink="/frozen">Frozen Snacks</a></li>
+                                    <li><a routerLink="/frozen">Frozen Nonveg</a></li>
+                                </ul>
+                            </div>                  
+                        </div>	
+                    </li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/bread">Bread & Bakery</a></li>
+                </ul>
+             </div><!-- /.navbar-collapse -->
+        </nav>
+    </div>
+    
+    <!-- <div class="clearfix"></div> -->
+</div>
+<!-- //banner -->
+
+<!-- <router-outlet></router-outlet> -->
+
