@@ -30,20 +30,6 @@ export class ProductService {
     return this.db.collection('product',ref => ref.where(field1, '==', value1).where(field2, '==', value2)).snapshotChanges()
   }
 
-  addProduct(item){
-    return this.db.collection('product').add({
-      id: item.id,
-      name: item.name,
-      desc: item.desc,
-      price: item.price,
-      discPrice: item.discPrice,
-      rating: item.rating,
-      tagFile: item.tagFile,
-      imgFile: item.imgFile,
-      category: item.category
-    });
-  }
-
   getCartItems(){
     return this.db.collection('cart').snapshotChanges();
   }

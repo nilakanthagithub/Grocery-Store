@@ -35,8 +35,4 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  addProduct(){
-    // this.productService.addProduct(this.product);
-  }
-
 }
