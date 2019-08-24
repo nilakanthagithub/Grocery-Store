@@ -10,18 +10,6 @@ import { ProductService } from '../product.service';
 })
 export class RegisterComponent implements OnInit {
 
-  // product:any = 
-  //   {id: 175,
-  //   name: 'lax & Walnut Loaf (400 Gm)',
-  //   desc: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-  //   price: 9,
-  //   discPrice: 7,
-  //   rating: 3,
-  //   tagFile: 'offer.png',
-  //   imgFile: '48.png',
-  //   category: 'Bread & Bakery'
-  // };
-
   registerForm = this.formBuilder.group({
     username: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-Z0-9 \'\-]+$"), Validators.minLength(6)]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
