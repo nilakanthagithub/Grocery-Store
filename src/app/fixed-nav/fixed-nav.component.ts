@@ -80,8 +80,10 @@ export class FixedNavComponent implements OnInit {
       this.searchValue = event.target.value[0].toUpperCase() + event.target.value.substring(1).toLowerCase();
       this.productService.searchProduct(this.searchValue)
       .subscribe(result => {
+        if(result.length == 0){
+          this.isShow = false;
+        }
         this.searchItems = result;
-        console.log(this.searchItems.length);
       });
     }
     else {

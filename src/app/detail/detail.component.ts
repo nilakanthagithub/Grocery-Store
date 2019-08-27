@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 import { ProductService } from '../product.service';
 
@@ -10,6 +11,7 @@ import { ProductService } from '../product.service';
 })
 export class DetailComponent implements OnInit {
 
+  routerUrl: string;
   id:any;
   item: any;
   foodItems: Array<any>;
@@ -18,12 +20,26 @@ export class DetailComponent implements OnInit {
 
   constructor(
     public productService: ProductService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private _router: Router,
   ) { }
 
   ngOnInit() {
     this.getId();
+    this.listenRouting();
     this.getData();
+  }
+
+  listenRouting() {
+    this._router.events.subscribe((router: any) => {
+      if(router instanceof NavigationEnd) {
+        this.routerUrl = router.urlAfterRedirects;
+        if(this.id != this.routerUrl.substr(this.routerUrl.lastIndexOf('/') + 1)){
+          this.id = this.routerUrl.substr(this.routerUrl.lastIndexOf('/') + 1);
+          this.getData();
+        }
+      }
+    });
   }
 
   getId(): void {
@@ -31,11 +47,13 @@ export class DetailComponent implements OnInit {
   }
 
   getData(){
+    // console.log("getData: " + this.id);
     this.productService.detailById(this.id)
     .subscribe(result => {
       this.item = result;
+      // console.log(this.item);
     });
-
+    
     this.productService.searchByTwoFieldName('heading', 'Popular Brand', 'category', 'Food')
     .subscribe(result => {
       this.foodItems = result;
