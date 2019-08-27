@@ -18,28 +18,30 @@ export class DetailComponent implements OnInit {
   vegItems: Array<any>;
   beverageItems: Array<any>;
 
+  navigationSubscription;
+
   constructor(
     public productService: ProductService,
     private route: ActivatedRoute,
-    private _router: Router,
-  ) { }
+    private _router: Router
+  ) {
+    this.navigationSubscription = this._router.events.subscribe((e: any) => {
+      // If it is a NavigationEnd event re-initalise the component
+      if (e instanceof NavigationEnd) {
+        this.initialiseInvites();
+      }
+    });
+   }
 
   ngOnInit() {
     this.getId();
-    this.listenRouting();
     this.getData();
   }
 
-  listenRouting() {
-    this._router.events.subscribe((router: any) => {
-      if(router instanceof NavigationEnd) {
-        this.routerUrl = router.urlAfterRedirects;
-        if(this.id != this.routerUrl.substr(this.routerUrl.lastIndexOf('/') + 1)){
-          this.id = this.routerUrl.substr(this.routerUrl.lastIndexOf('/') + 1);
-          this.getData();
-        }
-      }
-    });
+  initialiseInvites() {
+    // Set default values and re-fetch any data you need.
+    this.getId();
+    this.getData();
   }
 
   getId(): void {
@@ -47,11 +49,9 @@ export class DetailComponent implements OnInit {
   }
 
   getData(){
-    // console.log("getData: " + this.id);
     this.productService.detailById(this.id)
     .subscribe(result => {
       this.item = result;
-      // console.log(this.item);
     });
     
     this.productService.searchByTwoFieldName('heading', 'Popular Brand', 'category', 'Food')

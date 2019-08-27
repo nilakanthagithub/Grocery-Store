@@ -242,6 +242,10 @@
     list-style-type: none;
 }
 
+.autocomplete ul  li {
+    cursor: pointer;
+}
+
 .autocomplete .minicart-item a {
     color: #333;
     text-decoration: none;

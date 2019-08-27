@@ -20,6 +20,7 @@ export class FixedNavComponent implements OnInit {
   totalAmount: any;
   searchValue: string;
   isShow: boolean;
+  product='';
 
   constructor(
     private _router: Router,
@@ -30,15 +31,14 @@ export class FixedNavComponent implements OnInit {
     this.listenRouting();
     this.getData();
     this.isShow = false;
+    this.product='';
   }
 
   listenRouting() {
     this._router.events.subscribe((router: any) => {
       this.routerUrl = router.urlAfterRedirects;
-      // console.log(router);
       this.isHome = (this.routerUrl =="/home") ? true : false;
       if(this.routerUrl){
-        // console.log(this.routerUrl.substr(1,this.routerUrl.lastIndexOf('/') - 1));
         for(let i of this.routeList){
           if(i.key == this.routerUrl.substr(1)){
             this.curRoute=i.value;
@@ -48,8 +48,17 @@ export class FixedNavComponent implements OnInit {
         if(this.routerUrl.substr(1,this.routerUrl.lastIndexOf('/') - 1) == 'detail'){
           this.curRoute='Product Details';
         }
+        else {
+          this.product = "";
+        }
       }
     });
+  }
+
+  goToUrl(url,productName){
+    this._router.navigateByUrl(url);
+    this.isShow = false;
+    this.product = productName;
   }
 
   getData(){
@@ -68,7 +77,6 @@ export class FixedNavComponent implements OnInit {
   }
 
   updateCartItem(item, event){
-    // console.log(event.target.value);
     if(event.target.value > 0){
       this.productService.updateCartItem(item, event.target.value);
     }
