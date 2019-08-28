@@ -217,8 +217,9 @@
 
 .autocomplete {
     display: block;
-    left: 33.6% !important;
-    width: 22.75%;
+    /* left: 33.6% !important; */
+    width: 23%;
+    /* width: 85%; */
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
     -moz-transform: translateZ(0);
@@ -226,7 +227,7 @@
     -webkit-animation: pop-in 0.25s;
     -moz-animation: pop-in 0.25s;
     position: fixed;
-    top: 45px;
+    /* top: 45px; */
     z-index: 9999;
     background: #ffffff;
     border: 1px solid #ccc;
@@ -255,8 +256,32 @@
     text-transform: capitalize;
 }
 
+@media (max-width: 1080px){
+    .autocomplete {
+        width: 25.5%;
+    }
+}
+
+@media (max-width: 800px){
+    .autocomplete {
+        width: 20.5%;
+    }
+}
+
 @media (max-width: 768px){
     .navbar-expand-md .navbar-nav .nav-link {
         padding: 10px 15px;
+    }
+}
+
+@media (max-width: 736px){
+    .autocomplete {
+        width: 41%;
+    }
+}
+
+@media (max-width: 667px){
+    .autocomplete {
+        width: 45%;
     }
 }

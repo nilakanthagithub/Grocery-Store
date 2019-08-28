@@ -7,6 +7,17 @@
         <form action="#" method="post">
             <input type="text" id="product" name="product" placeholder="Search a product..." (keyup)="searchProduct($event)" autocomplete="off" value={{product}}>
             <input type="submit" value=" ">
+            <div *ngIf="isShow" class="autocomplete">
+                <form method="post" class="" action="#" target="">
+                    <ul>
+                        <li class="minicart-item"  *ngFor="let product of searchItems">
+                            <div class="minicart-details-name">
+                                <a class="minicart-name" (click)="goToUrl('/detail/' + product.payload.doc.data().id,product.payload.doc.data().name)">{{product.payload.doc.data().name}}</a>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </div>
         </form>
     </div>
     <div class="product_list_header">  
@@ -39,18 +50,17 @@
     <div class="clearfix"> </div>
 </div>
 
-<div *ngIf="isShow" class="autocomplete">
+<!-- <div *ngIf="isShow" class="autocomplete">
     <form method="post" class="" action="#" target="">
         <ul>
             <li class="minicart-item"  *ngFor="let product of searchItems">
                 <div class="minicart-details-name">
-                    <!-- <a class="minicart-name" routerLink="/detail/{{product.payload.doc.data().id}}">{{product.payload.doc.data().name}}</a> -->
                     <a class="minicart-name" (click)="goToUrl('/detail/' + product.payload.doc.data().id,product.payload.doc.data().name)">{{product.payload.doc.data().name}}</a>
                 </div>
             </li>
         </ul>
     </form>
-</div>
+</div> -->
 
 <div class="logo_products">
     <div class="container">
@@ -125,12 +135,6 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <!-- <div class="navbar-header nav_2"> -->
             <div class="navbar-header nav_2 mx-auto">
-                <!-- <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button> -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-megadropdown-tabs" aria-controls="bs-megadropdown-tabs" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
