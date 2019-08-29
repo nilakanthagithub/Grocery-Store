@@ -1,0 +1,13 @@
+
+::placeholder {
+    color: white;
+}
+
+form .text-light {
+    font-size: 14px;
+    padding-left: 6px;
+}
+
+form input[disabled] {
+    background: #212529;
+}

@@ -8,9 +8,18 @@
             <h3>sign up for our newsletter</h3>
         </div>
         <div class="w3agile_newsletter_right">
-            <form action="#" method="post">
-                <input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-                <input type="submit" value="subscribe now">
+            <form [formGroup]="subscribeForm" (ngSubmit)="onSubmit()">
+                <input type="email" formControlName="email" placeholder="Email">
+                
+                <input [disabled]="!subscribeForm.valid" type="submit" value="subscribe now">
+                <div class="text-light" *ngIf="subscribeForm.get('email').touched && subscribeForm.get('email').invalid">
+                    <div class="text-light" *ngIf="subscribeForm.get('email').hasError('required')">
+                        Email is Required!
+                    </div>
+                    <div class="text-light" *ngIf="subscribeForm.get('email').hasError('pattern')">
+                        Invalid Email!
+                    </div>
+                </div>
             </form>
         </div>
         <div class="clearfix"> </div>
