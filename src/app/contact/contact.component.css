@@ -11,3 +11,7 @@ form .text-danger {
 form input[disabled] {
     background: #212529;
 }
+
+.show {
+    opacity: 1;
+}

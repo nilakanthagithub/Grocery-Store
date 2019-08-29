@@ -31,7 +31,6 @@ export class ContactComponent implements OnInit {
       const item = this.contactForm.value;
       this.productService.addMail(item);
       this.contactForm.reset();
-      alert("Submitted Successfully!");
     }
   }
 

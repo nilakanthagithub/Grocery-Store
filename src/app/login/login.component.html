@@ -6,35 +6,36 @@
         <div class="w3_login_module">
             <div class="module form-module">
                 <div class="form">
-                <h2>Login to your account</h2>
-                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <h2>Login to your account</h2>
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                         <input type="text" formControlName="username" placeholder="Username">
-                    <div class="text-danger" *ngIf="loginForm.get('username').touched && loginForm.get('username').invalid">
-                        <div class="text-danger" *ngIf="loginForm.get('username').hasError('required')">
-                            Username is Required!
+                        <div class="text-danger" *ngIf="loginForm.get('username').touched && loginForm.get('username').invalid">
+                            <div class="text-danger" *ngIf="loginForm.get('username').hasError('required')">
+                                Username is Required!
+                            </div>
+                            <div class="text-danger" *ngIf="loginForm.get('username').hasError('pattern')">
+                                Invalid Username!
+                            </div>
+                            <div class="text-danger" *ngIf="loginForm.get('username').hasError('minlength') && !loginForm.get('username').hasError('pattern')">
+                                Min Length should be of 6!
+                            </div>
                         </div>
-                        <div class="text-danger" *ngIf="loginForm.get('username').hasError('pattern')">
-                            Invalid Username!
-                        </div>
-                        <div class="text-danger" *ngIf="loginForm.get('username').hasError('minlength') && !loginForm.get('username').hasError('pattern')">
-                            Min Length should be of 6!
-                        </div>
-                    </div>
 
-                    <input type="password" formControlName="password" placeholder="Password">
-                    <div class="text-danger" *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid">
-                        <div class="text-danger" *ngIf="loginForm.get('password').hasError('required')">
-                            Password is Required!
+                        <input type="password" formControlName="password" placeholder="Password">
+                        <div class="text-danger" *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid">
+                            <div class="text-danger" *ngIf="loginForm.get('password').hasError('required')">
+                                Password is Required!
+                            </div>
+                            <div class="text-danger" *ngIf="loginForm.get('password').hasError('minlength')">
+                                Min Length should be of 6!
+                            </div>
                         </div>
-                        <div class="text-danger" *ngIf="loginForm.get('password').hasError('minlength')">
-                            Min Length should be of 6!
-                        </div>
-                    </div>
 
-                    <input [disabled]="!loginForm.valid" type="submit" value="Login">
-                </form>
+                        <input [disabled]="!loginForm.valid" type="submit" value="Login"  data-toggle="modal" data-target="#exampleModal">
+                    </form>
                 </div>
                 <!-- <div class="cta"><a href="#">Forgot your password?</a></div> -->
+                <!-- <app-dialog title="Login"></app-dialog> -->
             </div>
         </div>
     </div>

@@ -31,7 +31,6 @@ export class RegisterComponent implements OnInit {
       const item = this.registerForm.value;
       this.productService.addUser(item);
       this.registerForm.reset();
-      alert("User Registered Successfully!");
     }
   }
 
