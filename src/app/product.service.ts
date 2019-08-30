@@ -12,6 +12,10 @@ export class ProductService {
     return this.db.collection('product',ref => ref.where('id', '==', value)).snapshotChanges()
   }
 
+  searchUser(value){
+    return this.db.collection('user',ref => ref.where('username', '==', value)).snapshotChanges()
+  }
+
   searchProduct(value){
     return this.db.collection('product', ref => 
       ref

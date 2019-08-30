@@ -11,8 +11,8 @@ import { ProductService } from '../product.service';
 export class LoginComponent implements OnInit {
 
   loginForm = this.formBuilder.group({
-    username: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-Z0-9 \'\-]+$"), Validators.minLength(6)]),
-    password: new FormControl('', [Validators.required, Validators.minLength(6)])
+    username: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required])
 	});
 
   constructor(

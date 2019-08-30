@@ -6,10 +6,10 @@
 
     <div class="agileinfo_single" *ngFor="let product of item">
         <h5>{{product.payload.doc.data().name}}</h5>
-        <div class="col-md-4 agileinfo_single_left">
+        <div class="col-lg-4 agileinfo_single_left">
             <img id="example" src="../../assets/{{product.payload.doc.data().imgFile}}" alt=" " class="img-responsive" />
         </div>
-        <div class="col-md-8 agileinfo_single_right">
+        <div class="col-lg-8 agileinfo_single_right">
             <div class="rating1">
                 <span class="starRating">
                     <input *ngIf="product.payload.doc.data().rating=='5';else elseblock" id="rating5" type="radio" name="rating" value="5" checked>
@@ -75,7 +75,7 @@
     <h3>Popular Brands</h3>
         <div class="w3ls_w3l_banner_nav_right_grid1">
             <h6>food</h6>
-            <div class="col-md-3 w3ls_w3l_banner_left" *ngFor="let product of foodItems">
+            <div class="col-lg-3 w3ls_w3l_banner_left" *ngFor="let product of foodItems">
                 <div class="hover14 column">
                     <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
                         <div *ngIf="product.payload.doc.data().tagFile=='offer.png'" class="agile_top_brand_left_grid_pos">
@@ -111,7 +111,7 @@
         </div>
         <div class="w3ls_w3l_banner_nav_right_grid1">
             <h6>vegetables & fruits</h6>
-            <div class="col-md-3 w3ls_w3l_banner_left" *ngFor="let product of vegItems">
+            <div class="col-lg-3 w3ls_w3l_banner_left" *ngFor="let product of vegItems">
                 <div class="hover14 column">
                     <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
                         <div *ngIf="product.payload.doc.data().tagFile=='offer.png'" class="agile_top_brand_left_grid_pos">
@@ -147,7 +147,7 @@
         </div>
         <div class="w3ls_w3l_banner_nav_right_grid1">
             <h6>beverages</h6>
-            <div class="col-md-3 w3ls_w3l_banner_left" *ngFor="let product of beverageItems">
+            <div class="col-lg-3 w3ls_w3l_banner_left" *ngFor="let product of beverageItems">
                 <div class="hover14 column">
                     <div class="agile_top_brand_left_grid w3l_agile_top_brand_left_grid">
                         <div *ngIf="product.payload.doc.data().tagFile=='offer.png'" class="agile_top_brand_left_grid_pos">
