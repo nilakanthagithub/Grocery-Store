@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { routeList } from './route-list';
 import { ProductService } from '../product.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-fixed-nav',
@@ -24,7 +25,8 @@ export class FixedNavComponent implements OnInit {
 
   constructor(
     private _router: Router,
-    public productService: ProductService
+    public productService: ProductService,
+    private  authService:  AuthService
     ) { }
 
   ngOnInit() {

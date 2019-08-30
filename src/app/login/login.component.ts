@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormControl } from '@angular/forms';
 
 import { ProductService } from '../product.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,15 +10,16 @@ import { ProductService } from '../product.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  
   loginForm = this.formBuilder.group({
-    username: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
 	});
 
   constructor(
     private formBuilder: FormBuilder,
-    public productService: ProductService
+    public productService: ProductService,
+    private  authService:  AuthService
     ) { }
 
   ngOnInit() {
@@ -25,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      const item = this.loginForm.value;
+      this.authService.login(this.loginForm.value.email, this.loginForm.value.password);
       // this.productService.login(item);
       // this.loginForm.reset();
     }

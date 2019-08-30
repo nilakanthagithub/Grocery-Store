@@ -8,10 +8,10 @@
                 <div class="form">
                     <h2>Login to your account</h2>
                     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                        <input type="text" formControlName="username" placeholder="Username">
-                        <div class="text-danger" *ngIf="loginForm.get('username').invalid">
-                            <div class="text-danger" *ngIf="loginForm.get('username').touched && loginForm.get('username').hasError('required')">
-                                Username is Required!
+                        <input type="text" formControlName="email" placeholder="Email">
+                        <div class="text-danger" *ngIf="loginForm.get('email').invalid">
+                            <div class="text-danger" *ngIf="loginForm.get('email').touched && loginForm.get('email').hasError('required')">
+                                Email is Required!
                             </div>
                         </div>
 

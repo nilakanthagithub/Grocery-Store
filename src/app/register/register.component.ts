@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormControl } from '@angular/forms';
 
 import { ProductService } from '../product.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +22,8 @@ export class RegisterComponent implements OnInit {
   
   constructor(
     private formBuilder: FormBuilder,
-    public productService: ProductService
+    public productService: ProductService,
+    private  authService:  AuthService
   ) { }
 
   ngOnInit() {
@@ -30,8 +32,9 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     if (this.registerForm.valid) {
       const item = this.registerForm.value;
-      this.productService.addUser(item);
-      this.registerForm.reset();
+      this.authService.signUp(this.registerForm.value.email, this.registerForm.value.password);
+      // this.productService.addUser(item);
+      // this.registerForm.reset();
     }
   }
 
@@ -48,6 +51,7 @@ export class RegisterComponent implements OnInit {
         }
       });
     }
+
   }
 
 }

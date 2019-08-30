@@ -36,7 +36,8 @@
                 <div class="mega-dropdown-menu">
                     <div class="w3ls_vegetables">
                         <ul class="dropdown-menu drp-mnu">
-                            <li><a routerLink="/login">Login</a></li> 
+                            <li *ngIf="authService.isLoggedIn"><a (click)="authService.logout()">Logout</a></li> 
+                            <li *ngIf="!authService.isLoggedIn"><a routerLink="/login">Login</a></li> 
                             <li><a routerLink="/register">Sign Up</a></li>
                         </ul>
                     </div>                  

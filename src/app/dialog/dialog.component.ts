@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class DialogComponent implements OnInit {
 
   @Input() title: string;
+  @Input() msg: string;
 
   constructor() { }
 
