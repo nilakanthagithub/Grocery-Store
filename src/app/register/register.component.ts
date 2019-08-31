@@ -12,11 +12,11 @@ import { AuthService } from '../auth/auth.service';
 export class RegisterComponent implements OnInit {
 
   registerForm = this.formBuilder.group({
-    username: new FormControl('', [Validators.required, Validators.pattern("^[a-z0-9 \'\-]+$"), Validators.minLength(4)]),
+    // username: new FormControl('', [Validators.required, Validators.pattern("^[a-z0-9 \'\-]+$"), Validators.minLength(4)]),
+    // phone: new FormControl('',  [Validators.required,
+      // Validators.pattern("[0-9]*"), Validators.maxLength(10), Validators.minLength(10)]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-    email: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")]),
-		phone: new FormControl('',  [Validators.required,
-      Validators.pattern("[0-9]*"), Validators.maxLength(10), Validators.minLength(10)])
+    email: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")])
   });
   isAvailable: boolean = true;
   
@@ -33,25 +33,24 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.valid) {
       const item = this.registerForm.value;
       this.authService.signUp(this.registerForm.value.email, this.registerForm.value.password);
-      // this.productService.addUser(item);
       // this.registerForm.reset();
+      // this.productService.addUser(item);
     }
   }
 
-  searchUser(event){
-    if(event.target.value){
-      this.productService.searchUser(event.target.value)
-      .subscribe(result => {
-        if(result.length > 0){
-          this.isAvailable = false;
-          this.registerForm.controls['username'].setErrors({'available': true});
-        }
-        else{
-          this.isAvailable = true;
-        }
-      });
-    }
-
-  }
+  // searchUser(event){
+  //   if(event.target.value){
+  //     this.productService.searchUser(event.target.value)
+  //     .subscribe(result => {
+  //       if(result.length > 0){
+  //         this.isAvailable = false;
+  //         this.registerForm.controls['username'].setErrors({'available': true});
+  //       }
+  //       else{
+  //         this.isAvailable = true;
+  //       }
+  //     });
+  //   }
+  // }
 
 }

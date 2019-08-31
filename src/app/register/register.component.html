@@ -7,7 +7,7 @@
                 <div class="form">
                     <h2>Create an account</h2>
                     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-                        <input type="text" formControlName="username" placeholder="Username" (keyup)="searchUser($event)">
+                        <!-- <input type="text" formControlName="username" placeholder="Username" (keyup)="searchUser($event)">
                         <div class="text-danger" *ngIf="registerForm.get('username').invalid">
                             <div class="text-danger" *ngIf="registerForm.get('username').touched && registerForm.get('username').hasError('required')">
                                 Username is Required!
@@ -26,6 +26,16 @@
                             <div class="text-danger" *ngIf="!isAvailable">
                                 Username already taken!
                             </div>
+                        </div> -->
+                        
+                        <input type="email" formControlName="email" placeholder="Email Address">
+                        <div class="text-danger" *ngIf="registerForm.get('email').invalid">
+                            <div class="text-danger" *ngIf="registerForm.get('email').touched && registerForm.get('email').hasError('required')">
+                                Email is Required!
+                            </div>
+                            <div class="text-danger" *ngIf="registerForm.get('email').hasError('pattern')">
+                                Invalid Email!
+                            </div>
                         </div>
                         
                         <input type="password" formControlName="password" placeholder="Password">
@@ -38,17 +48,7 @@
                             </div>
                         </div>
                         
-                        <input type="email" formControlName="email" placeholder="Email Address">
-                        <div class="text-danger" *ngIf="registerForm.get('email').invalid">
-                            <div class="text-danger" *ngIf="registerForm.get('email').touched && registerForm.get('email').hasError('required')">
-                                Email is Required!
-                            </div>
-                            <div class="text-danger" *ngIf="registerForm.get('email').hasError('pattern')">
-                                Invalid Email!
-                            </div>
-                        </div>
-                        
-                        <input type="text" formControlName="phone" placeholder="Phone Number">
+                        <!-- <input type="text" formControlName="phone" placeholder="Phone Number">
                         <div class="text-danger" *ngIf="registerForm.get('phone').invalid">
                             <div class="text-danger" *ngIf="registerForm.get('phone').touched && registerForm.get('phone').hasError('required')">
                                 Phone is Required!
@@ -62,12 +62,12 @@
                             <div class="text-danger" *ngIf="registerForm.get('phone').hasError('maxlength') && !registerForm.get('phone').hasError('pattern')">
                                 Max Length should be 10!
                             </div>
-                        </div>
+                        </div> -->
                         
                         <input [disabled]="!registerForm.valid" type="submit" value="Register"  data-toggle="modal" data-target="#exampleModal">
                     </form>
                 </div>
-                <app-dialog title="Sign Up" msg="Submitted Successfully!"></app-dialog>
+                <!-- <app-dialog title="Sign Up" msg="Submitted Successfully!"></app-dialog> -->
             </div>
         </div>
     </div>

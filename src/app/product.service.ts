@@ -12,9 +12,9 @@ export class ProductService {
     return this.db.collection('product',ref => ref.where('id', '==', value)).snapshotChanges()
   }
 
-  searchUser(value){
-    return this.db.collection('user',ref => ref.where('username', '==', value)).snapshotChanges()
-  }
+  // searchUser(value){
+  //   return this.db.collection('user',ref => ref.where('username', '==', value)).snapshotChanges()
+  // }
 
   searchProduct(value){
     return this.db.collection('product', ref => 
@@ -81,14 +81,14 @@ export class ProductService {
     });
   }
 
-  addUser(item){
-    this.db.collection('user').add({
-      username: item.username,
-      email: item.email,
-      password: item.password,
-      phone: item.phone
-    });
-  }
+  // addUser(item){
+  //   this.db.collection('user').add({
+  //     username: item.username,
+  //     email: item.email,
+  //     password: item.password,
+  //     phone: item.phone
+  //   });
+  // }
 
   addMail(item){
     this.db.collection('mail').add({
