@@ -116,12 +116,12 @@
                     <button type="button" class="minicart-remove" data-minicart-idx="0" (click)="deleteCartItem(product.payload.doc.id)">×</button>
                 </div>
                 <div class="minicart-details-price">
-                    <span class="minicart-price">${{product.payload.doc.data().discPrice}}.00</span>
+                    <span class="minicart-price">${{product.payload.doc.data().discPrice}}</span>
                 </div>
             </li>
         </ul>
         <div class="minicart-footer">
-            <div class="minicart-subtotal" *ngIf="totalAmount>0">Subtotal: ${{totalAmount}}.00 USD</div>
+            <div class="minicart-subtotal" *ngIf="totalAmount>0">Subtotal: ${{totalAmount}}</div>
             <p class="minicart-empty-text" *ngIf="totalAmount==0">Your shopping cart is empty</p>
             <button class="minicart-submit" type="submit" data-minicart-alt="undefined"></button>            
         </div>
