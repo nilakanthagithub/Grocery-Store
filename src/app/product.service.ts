@@ -55,17 +55,17 @@ export class ProductService {
       id: item.id,
       name: item.name,
       qty: 1,
-      discount: 1,
-      discPrice: parseInt(item.discPrice) - 1
+      discount: this.subtractFloat(item.price, item.discPrice),
+      discPrice: parseFloat(item.discPrice).toFixed(2)
     });
   }
 
   updateCart(docId, oldItem, item){
     
     this.db.collection('cart').doc(docId).update({
-      qty: oldItem.qty + 1,
-      discount: oldItem.discount + 1,
-      discPrice: oldItem.discPrice + item.discPrice - 1
+      qty: parseInt(oldItem.qty) + 1,
+      discount: this.addFloat(oldItem.discount, this.subtractFloat(item.price, item.discPrice)),
+      discPrice: this.addFloat(oldItem.discPrice, item.discPrice)
     });
   }
 
@@ -76,8 +76,8 @@ export class ProductService {
   updateCartItem(item, qty){
     this.db.collection('cart').doc(item.id).update({
       qty: qty,
-      discount: item.data().discount * qty / item.data().qty,
-      discPrice: item.data().discPrice * qty / item.data().qty
+      discount: (((item.data().discount * 100) * qty / item.data().qty) / 100).toFixed(2),
+      discPrice: (((item.data().discPrice * 100) * qty / item.data().qty) / 100).toFixed(2)
     });
   }
 
@@ -98,5 +98,13 @@ export class ProductService {
       subject: item.subject,
       message: item.message
     });
+  }
+
+  addFloat(value1, value2){
+    return (((value1 * 100) + (value2 * 100)) / 100).toFixed(2);
+  }
+
+  subtractFloat(value1, value2){
+    return (((value1 * 100) - (value2 * 100)) / 100).toFixed(2);
   }
 }

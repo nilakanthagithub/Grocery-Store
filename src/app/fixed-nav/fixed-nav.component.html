@@ -104,7 +104,7 @@
             <li class="minicart-item"  *ngFor="let product of cartItems">
                 <div class="minicart-details-name">
                     <a class="minicart-name">{{product.payload.doc.data().name}}</a>
-                    <ul class="minicart-attributes">                                                              <li>Discount: ${{product.payload.doc.data().discount}}.00
+                    <ul class="minicart-attributes">                                                              <li>Discount: ${{product.payload.doc.data().discount}}
                             <input type="hidden" name="discount_amount_1" value="2">
                         </li>
                     </ul>

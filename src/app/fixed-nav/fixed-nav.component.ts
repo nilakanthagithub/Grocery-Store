@@ -69,8 +69,9 @@ export class FixedNavComponent implements OnInit {
       this.cartItems = result;
       this.totalAmount = 0;
       this.cartItems.forEach(element => {
-        this.totalAmount += element.payload.doc.data().discPrice;
+        this.totalAmount += Math.round(element.payload.doc.data().discPrice * 100);
       });
+      this.totalAmount = (this.totalAmount / 100).toFixed(2);
     });
   }
 
