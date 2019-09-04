@@ -22,6 +22,8 @@ export class FixedNavComponent implements OnInit {
   searchValue: string;
   isShow: boolean;
   product='';
+  searchFlag: boolean = false;
+  prevUrl:string;
 
   constructor(
     private _router: Router,
@@ -58,8 +60,10 @@ export class FixedNavComponent implements OnInit {
   }
 
   goToUrl(url,productName){
+    this.prevUrl = this._router.url;
     this._router.navigateByUrl(url);
     this.isShow = false;
+    this.searchFlag = true;
     this.product = productName;
   }
 
@@ -99,6 +103,10 @@ export class FixedNavComponent implements OnInit {
     }
     else {
       this.isShow = false;
+      if(this.searchFlag == true){
+        this.searchFlag = false;
+        this._router.navigateByUrl(this.prevUrl);
+      }
     }
   }
 
