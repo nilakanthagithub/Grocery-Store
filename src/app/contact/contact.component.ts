@@ -13,7 +13,7 @@ export class ContactComponent implements OnInit {
   contactForm = this.formBuilder.group({
     name: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z]*")]),
     phone: new FormControl('',  [Validators.required, Validators.pattern("[0-9]*"), Validators.maxLength(10),Validators.minLength(10)]),
-		email: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")]),
+		email: new FormControl('', [Validators.required, Validators.pattern("^[a-z]+[a-z0-9_.+-]+@[a-z]+[a-z0-9-]+.[a-z]+[a-z0-9-.]+$")]),
 		subject: new FormControl('', [Validators.required]),
 		message: new FormControl('', [])
 	});

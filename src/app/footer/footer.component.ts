@@ -9,7 +9,7 @@ import { FormBuilder, Validators, FormControl } from '@angular/forms';
 export class FooterComponent implements OnInit {
 
   subscribeForm = this.formBuilder.group({
-    email: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")]),
+    email: new FormControl('', [Validators.required, Validators.pattern("^[a-z]+[a-z0-9_.+-]+@[a-z]+[a-z0-9-]+.[a-z]+[a-z0-9-.]+$")]),
 	});
 
   constructor(private formBuilder: FormBuilder) { }

@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  
   title = 'grocery-store';
+
+  onActivate(event) {
+    window.scroll(0,0);
+    //or document.body.scrollTop = 0;
+    //or document.querySelector('body').scrollTo(0,0)
+    if (event.constructor.name == "DetailComponent"){ // for example
+      window.scroll(0,500);
+    }
+  }
 }

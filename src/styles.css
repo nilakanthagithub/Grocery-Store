@@ -820,7 +820,7 @@ ul.dropdown-menu.drp-mnu li a i {
     width: 25.7%;
     text-transform: uppercase;
 }
-.w3agile_newsletter_right input[type="submit"]:hover{
+.w3agile_newsletter_right input[type="submit"]:not(:disabled):hover{
 	background:#84C639;
 	border: 1px solid #84C639;
 	color:#fff;
