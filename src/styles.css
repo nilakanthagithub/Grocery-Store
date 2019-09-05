@@ -625,10 +625,10 @@ ul.dropdown-menu.drp-mnu li a i {
 #PPMiniCart {
     left: 44% !important;
 }
-#PPMiniCart form{
+/* #PPMiniCart form{
     overflow-x: hidden;
     overflow-y: auto;
-}
+} */
 #PPMiniCart .minicart-footer {
     position: relative;
 	width: 80%;
@@ -2158,9 +2158,7 @@ ul.wmuSliderPagination {
   opacity : 1;
 } */
 
-.starRating:not(old) > label:hover:before,
-.starRating:not(old) > label:hover ~ label:before,
-.starRating:not(:hover) > :checked ~ label:before{
+.starRating > :checked ~ label:before{
   opacity : 1;
 }
 /*-- //Ratings --*/

@@ -101,16 +101,17 @@
     <form method="post" class="" action="#" target="">
         <button type="button" class="minicart-closer" onclick="document.getElementById('PPMiniCart').style.display='none'">×</button>
         <ul *ngIf="totalAmount>0">
-            <li class="minicart-item"  *ngFor="let product of cartItems">
+            <li class="minicart-item"  *ngFor="let product of cartItems;let i = index;">
                 <div class="minicart-details-name">
                     <a class="minicart-name">{{product.payload.doc.data().name}}</a>
-                    <ul class="minicart-attributes">                                                              <li>Discount: ${{product.payload.doc.data().discount}}
+                    <ul class="minicart-attributes">
+                        <li>Discount: ${{product.payload.doc.data().discount}}
                             <input type="hidden" name="discount_amount_1" value="2">
                         </li>
                     </ul>
                 </div>
                 <div class="minicart-details-quantity">
-                    <input class="minicart-quantity" data-minicart-idx="0" name="quantity_1" type="text" pattern="[0-9]*" value="{{product.payload.doc.data().qty}}" autocomplete="off" (keyup)="updateCartItem(product.payload.doc, $event)">
+                    <input class="minicart-quantity" data-minicart-idx="0" name="quantity_1" type="text" pattern="[0-9]*" value="{{product.payload.doc.data().qty}}" autocomplete="off" (keyup)="updateCartItem(product.payload.doc, $event, 'qty' + i)" id="qty{{i}}">
                 </div>
                 <div class="minicart-details-remove">
                     <button type="button" class="minicart-remove" data-minicart-idx="0" (click)="deleteCartItem(product.payload.doc.id)">×</button>

@@ -78,7 +78,7 @@
                                             <form action="#" method="post">
                                                 <fieldset>
                                                     <input type="hidden" name="id" value="_cart" />
-                                                    <input type="submit" name="submit" value="Add to cart" class="button" (click)="addToCart(product.payload.doc.data())" />
+                                                    <input type="submit" name="submit" value="Add to cart" class="button" (click)="addToCart(product.payload.doc.data())" data-toggle="modal" data-target="#exampleModal" />
                                                 </fieldset>
                                             </form>
                                         </div>
@@ -115,7 +115,7 @@
                                             <form action="#" method="post">
                                                 <fieldset>
                                                     <input type="hidden" name="id" value="_cart" />
-                                                    <input type="submit" name="submit" value="Add to cart" class="button" (click)="addToCart(product.payload.doc.data())" />
+                                                    <input type="submit" name="submit" value="Add to cart" class="button" (click)="addToCart(product.payload.doc.data())" data-toggle="modal" data-target="#exampleModal" />
                                                 </fieldset>
                                             </form>
                                         </div>
@@ -152,7 +152,7 @@
                                             <form action="#" method="post">
                                                 <fieldset>
                                                     <input type="hidden" name="id" value="_cart" />
-                                                    <input type="submit" name="submit" value="Add to cart" class="button" (click)="addToCart(product.payload.doc.data())" />
+                                                    <input type="submit" name="submit" value="Add to cart" class="button" (click)="addToCart(product.payload.doc.data())" data-toggle="modal" data-target="#exampleModal" />
                                                 </fieldset>
                                             </form>
                                         </div>
@@ -168,4 +168,5 @@
     </div>
 </div>
 <div class="clearfix"></div>
+<app-dialog title="Cart" msg="Added Successfully!"></app-dialog>
 
