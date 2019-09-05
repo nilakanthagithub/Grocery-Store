@@ -8,6 +8,11 @@
     margin-right: 0;
 }
 
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
 #carouselExampleIndicators .carousel-indicators {
     bottom: -20px;
 }

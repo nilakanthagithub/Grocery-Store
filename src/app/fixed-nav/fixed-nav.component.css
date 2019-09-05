@@ -3,9 +3,17 @@
     display: none;
 }
 
-.w3ls_logo_products_left1:nth-child(3) {
-    margin-left: 3em;
+.w3ls_logo_products_left {
+    width: 15%;
 }
+
+h1 {
+    font-size: 36px;
+}
+
+/* .w3ls_logo_products_left1:nth-child(3) {
+    margin-left: 3em;
+} */
 
 .navbar-toggler {
     float: none;
