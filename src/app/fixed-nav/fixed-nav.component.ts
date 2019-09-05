@@ -86,10 +86,9 @@ export class FixedNavComponent implements OnInit {
   updateCartItem(item, event, id){
     if(event.target.value > 0){
       this.productService.updateCartItem(item, event.target.value);
-      // console.log(event);
-      // var elemId = event.explicitOriginalTarget.id;
-      document.getElementById(id).focus();
-      console.log(id);
+      setTimeout(()=>{
+        document.getElementById(id).focus();
+      },10); 
     }
   }
 
