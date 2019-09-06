@@ -1,33 +1,46 @@
 
-.w3l_offers {
-    width: 23%;
-    text-align: center;
+.row {
+    margin: 0;
+    padding: 0;
+}
+
+.agileits_header > div {
+    padding: 0;;
 }
 
 .w3l_offers a {
-    padding: .5em 0em;
+    height: 50px;
+    padding-top: 15px;
+    text-align: center;
 }
 
 .w3l_search {
     margin: 0em;
+    width: 100%;
 }
 
 .w3l_search input[type="text"] {
-    padding: 12px;
+    height: 50px;
+    width: 80%;
+    /* padding: 12px; */
 }
 
 .w3l_search input[type="submit"] {
-    padding: 11px 0px;
+    height: 50px;
+    width: 20%;
+    background: url(../../assets/img-sp.png) no-repeat .5rem 10px #FA1818;
+    /* padding: 11px 0px;
     border: none;
-    float: left;
+    float: left; */
 }
 
 .product_list_header {
-    width: 15%;
     margin: 0;
+    padding: 0;
 }
 
 fieldset {
+    height: 50px;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     padding-inline-start: 0px;
@@ -37,18 +50,20 @@ fieldset {
 }
 
 .product_list_header input.button {
+    height: 48px;
+    margin: 0;
     padding: .6em 2.5em .6em 1em;
+    background: url(../../assets/cart.png) no-repeat 116px 15px
 }
 
 .w3l_header_right {
-    width: 5%;
     margin: 0;
     padding: 0;
 }
 
 .w3l_header_right1 {
-    width: 15%;
     margin: 0;
+    padding: 0;
     text-align: center;
 }
 
@@ -59,22 +74,21 @@ h2 {
 }
 
 .w3l_header_right1 h2 a {
-    padding: .4em 0em;
+    height: 50px;
+    padding: 0;
+    padding-top: 13px;
+    text-align: center;
+    /* padding: .4em 0em; */
 }
 
 .dropdown-toggle::after {
     display: none;
 }
 
-.row {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-.row > div {
+.logo_products .row > div {
     margin-left: 0;
     margin-right: 0;
+    padding: 0;
     float: none;
     margin: auto;
     text-align: center;
@@ -137,7 +151,7 @@ h2 {
 #PPMiniCart form {
     position: relative;
     width: 400px;
-    /* max-height: 400px; */
+    max-height: 450px;
     margin-left: -200px;
     padding: 10px 10px 40px;
     background: #fbfbfb;
@@ -304,7 +318,7 @@ h2 {
 .autocomplete {
     display: block;
     /* left: 33.6% !important; */
-    width: 23%;
+    width: 20%;
     /* width: 85%; */
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
@@ -343,31 +357,33 @@ h2 {
 }
 
 @media (max-width: 1080px){
-    .autocomplete {
-        width: 25.5%;
-    }
+    
 }
 
 @media (max-width: 800px){
-    .autocomplete {
-        width: 20.5%;
-    }
+    
 }
 
 @media (max-width: 768px){
+
+    .autocomplete {
+        width: 40%;
+    }
+
     .navbar-expand-md .navbar-nav .nav-link {
         padding: 10px 15px;
     }
 }
 
 @media (max-width: 736px){
-    .autocomplete {
-        width: 41%;
+    
+    #PPMiniCart form {
+        max-height: 450px !important;
     }
 }
 
-@media (max-width: 667px){
+@media (max-width: 576px){
     .autocomplete {
-        width: 45%;
+        width: 80%;
     }
 }
