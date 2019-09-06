@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.valid) {
       const item = this.registerForm.value;
       this.authService.signUp(this.registerForm.value.email, this.registerForm.value.password);
-      // this.registerForm.reset();
+      this.registerForm.reset();
       // this.productService.addUser(item);
     }
   }
