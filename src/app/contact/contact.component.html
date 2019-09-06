@@ -3,8 +3,8 @@
     <div class="mail">
         <h3>Mail Us</h3>
 
-        <div class="agileinfo_mail_grids">
-            <div class="col-lg-4 agileinfo_mail_grid_left">
+        <div class="row agileinfo_mail_grids">
+            <div class="col-md-4 agileinfo_mail_grid_left">
                 <ul>
                     <li><i class="fa fa-home" aria-hidden="true"></i></li>
                     <li>address<span>868 1st Avenue NYC.</span></li>
@@ -18,9 +18,9 @@
                     <li>call to us<span>(+123) 233 2362 826</span></li>
                 </ul>
             </div>
-            <div class="col-lg-8 agileinfo_mail_grid_right">
-                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-                    <div class="col-lg-6 wthree_contact_left_grid">
+            <div class="col-md-8 agileinfo_mail_grid_right">
+                <form [formGroup]="contactForm" class="row" (ngSubmit)="onSubmit()">
+                    <div class="col-md-6 wthree_contact_left_grid">
                         <input type="text" formControlName="name" placeholder="Name*">
                         <div class="text-danger" *ngIf="contactForm.get('name').invalid">
                             <div class="text-danger" *ngIf="contactForm.get('name').touched && contactForm.get('name').hasError('required')">
@@ -41,7 +41,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 wthree_contact_left_grid">
+                    <div class="col-md-6 wthree_contact_left_grid">
                         <input type="text" formControlName="phone" placeholder="Phone*">
                         <div class="text-danger" *ngIf="contactForm.get('phone').invalid">
                             <div class="text-danger" *ngIf="contactForm.get('phone').touched && contactForm.get('phone').hasError('required')">
@@ -51,10 +51,10 @@
                                 Invalid Phone!
                             </div>
                             <div class="text-danger" *ngIf="contactForm.get('phone').hasError('minlength') && !contactForm.get('phone').hasError('pattern')">
-                                Min Length should be of 10!
+                                Min Length 10!
                             </div>
                             <div class="text-danger" *ngIf="contactForm.get('phone').hasError('maxlength') && !contactForm.get('phone').hasError('pattern')">
-                                Max Length should be 10!
+                                Max Length 10!
                             </div>
                         </div>
                         

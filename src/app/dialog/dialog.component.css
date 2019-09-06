@@ -2,3 +2,7 @@
 .show {
     opacity: 1;
 }
+
+.modal-dialog {
+    width: 400px;
+}

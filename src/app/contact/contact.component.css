@@ -12,6 +12,10 @@ form input[disabled] {
     background: #212529;
 }
 
+.agileinfo_mail_grid_right input[type="submit"], .agileinfo_mail_grid_right input[type="reset"] {
+    width: 45%;
+}
+
 .show {
     opacity: 1;
 }
