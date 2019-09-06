@@ -23,8 +23,6 @@
     <div class="product_list_header">  
         <form action="#" method="post" class="last">
             <fieldset>
-                <input type="hidden" name="cmd" value="_cart" />
-                <input type="hidden" name="display" value="1" />
                 <input type="submit" name="submit" value="View your cart" class="button" onclick="document.getElementById('PPMiniCart').style.display='block'" />
             </fieldset>
         </form>
@@ -64,11 +62,11 @@
 </div> -->
 
 <div class="logo_products">
-    <div class="container">
-        <div class="w3ls_logo_products_left">
+    <div class="row container-fluid">
+        <div class="col-md-3 col-lg-3 w3ls_logo_products_left">
             <h1><a routerLink="/home"><span>Grocery</span> Store</a></h1>
         </div>
-        <div class="w3ls_logo_products_left1">
+        <div class="col-md-9 col-lg-5 w3ls_logo_products_left1">
             <ul class="special_items">
                 <li><a routerLink="/event">Events</a><i>/</i></li>
                 <li><a routerLink="/about">About Us</a><i>/</i></li>
@@ -76,7 +74,7 @@
                 <li><a routerLink="/service">Services</a></li>
             </ul>
         </div>
-        <div class="w3ls_logo_products_left1">
+        <div class="col-md-12 col-lg-4 w3ls_logo_products_left1">
             <ul class="phone_email">
                 <li><i class="fa fa-phone" aria-hidden="true"></i>(+0123) 234 567</li>
                 <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:store@grocery.com">store@grocery.com</a></li>
