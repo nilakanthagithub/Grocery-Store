@@ -10,7 +10,7 @@
 
 .w3l_offers a {
     height: 50px;
-    padding-top: 15px;
+    padding-top: 12px;
     text-align: center;
 }
 
@@ -76,7 +76,7 @@ h2 {
 .w3l_header_right1 h2 a {
     height: 50px;
     padding: 0;
-    padding-top: 13px;
+    padding-top: 11px;
     text-align: center;
     /* padding: .4em 0em; */
 }
