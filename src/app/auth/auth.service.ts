@@ -25,18 +25,22 @@ export class AuthService {
   async  signUp(email:  string, password:  string) {
     try {
         await  this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-        this.router.navigate(['home']);
+        localStorage.setItem('signup', JSON.stringify("Sign Up Successfull!"));
+        this.authLogout();
+        // this.router.navigate(['login']);
     } catch (e) {
-        alert("Error!"  +  e.message);
+        // alert("Error!"  +  e.message);
+        localStorage.setItem('signup', JSON.stringify(e.message));
     }
   }
 
   async  login(email:  string, password:  string) {
     try {
         await  this.afAuth.auth.signInWithEmailAndPassword(email, password)
-        this.router.navigate(['home']);
+        localStorage.setItem('login', JSON.stringify("Sign In Successfull!"));
+        // this.router.navigate(['home']);
     } catch (e) {
-        alert("Error!"  +  e.message);
+        localStorage.setItem('login', JSON.stringify(e.message));
     }
   }
 
@@ -46,8 +50,18 @@ export class AuthService {
     this.router.navigate(['login']);
   }
 
+  async authLogout(){
+    await this.afAuth.auth.signOut();
+    localStorage.removeItem('user');
+  }
+
   get isLoggedIn(): boolean {
     const  user  =  JSON.parse(localStorage.getItem('user'));
     return  user  !==  null;
+  }
+
+  getError(key){
+    const log = JSON.parse(localStorage.getItem(key));
+    return log;
   }
 }

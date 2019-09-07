@@ -19,6 +19,8 @@ export class RegisterComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.pattern("^[a-z]+[a-z0-9_.+-]+@[a-z]+[a-z0-9-]+.[a-z]+[a-z0-9-.]+$")])
   });
   isAvailable: boolean = true;
+  msg:any="";
+  url:any="";
   
   constructor(
     private formBuilder: FormBuilder,
@@ -31,8 +33,15 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     if (this.registerForm.valid) {
+      document.getElementById("exampleModal").style.opacity = "0";
       const item = this.registerForm.value;
-      this.authService.signUp(this.registerForm.value.email, this.registerForm.value.password);
+      this.authService.signUp(this.registerForm.value.email, this.registerForm.value.password).then(()=>{
+        this.msg = this.authService.getError('signup');
+        document.getElementById("exampleModal").style.opacity = "1";
+        if(this.msg == "Sign Up Successfull!"){
+          this.url = "login";
+        }
+      });
       this.registerForm.reset();
       // this.productService.addUser(item);
     }

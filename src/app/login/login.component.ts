@@ -14,7 +14,9 @@ export class LoginComponent implements OnInit {
   loginForm = this.formBuilder.group({
     email: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
-	});
+  });
+  msg:any="";
+  url:any="";
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,9 +29,15 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      this.authService.login(this.loginForm.value.email, this.loginForm.value.password);
+      document.getElementById("exampleModal").style.opacity = "0";
+      this.authService.login(this.loginForm.value.email, this.loginForm.value.password).then(()=>{
+        this.msg = this.authService.getError('login');
+        document.getElementById("exampleModal").style.opacity = "1";
+        if(this.msg == "Sign In Successfull!"){
+          this.url = "home";
+        }
+      });
       this.loginForm.reset();
-      // this.productService.login(item);
     }
   }
 
